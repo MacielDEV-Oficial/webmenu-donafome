@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dona Fome | Cardápio</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="page-shell">
+        <div class="desktop-panel">
+            <header class="topbar">
+                <div class="brand-wrap">
+                    <div class="brand-mark">Dona <span>Fome</span></div>
+                </div>
+
+                <nav class="menu-nav" aria-label="Menu principal">
+                    <a href="#">Início</a>
+                    <a href="#menu">Cardápio</a>
+                    <a href="#">Avaliações</a>
+                </nav>
+
+                <div class="header-actions">
+                    <div class="account-wrap">
+                        <button id="account-button" class="account-button" aria-label="Minha conta">
+                            <span class="account-icon">👤</span>
+                        </button>
+                        <div id="account-menu" class="account-menu hidden"></div>
+                    </div>
+
+                    <button id="cart-button" class="cart-button" aria-label="Abrir carrinho">
+                        <span class="cart-icon">🛒</span>
+                        <span id="cart-badge" class="cart-badge">0</span>
+                    </button>
+                </div>
+            </header>
+
+            <section class="hero-banner">
+                <div class="hero-copy">
+                    <p class="eyebrow">RESTAURANTE DONA FOME</p>
+                    <h1>Dona Fome</h1>
+                    <p class="hero-subtitle">Sabor que dá vontade de voltar!</p>
+                    <button class="hero-btn" type="button">Ver cardápio <span>›</span></button>
+                </div>
+
+                <div class="hero-visual">
+                    <div class="hero-card">
+                        <div class="plate-illustration"></div>
+                    </div>
+                    <div class="floating-tag">Comida boa todo dia!</div>
+                </div>
+            </section>
+
+            <div id="category-strip" class="category-strip" aria-label="Categorias do menu"></div>
+
+            <main id="menu" class="menu-panel">
+                <section class="featured-section">
+                    <div class="section-header">
+                        <div class="section-title-wrap">
+                            <span class="title-icon">★</span>
+                            <h2>Mais pedidos</h2>
+                        </div>
+                        <span class="section-link">Ver todos</span>
+                    </div>
+
+                    <div id="dish-grid" class="dish-grid"></div>
+                </section>
+
+                <section class="category-section">
+                    <div class="section-header">
+                        <div class="section-title-wrap">
+                            <span class="title-icon">☰</span>
+                            <h2>Categorias</h2>
+                        </div>
+                        <span class="section-link">Explore</span>
+                    </div>
+
+                    <div id="category-grid" class="category-grid"></div>
+                </section>
+            </main>
+        </div>
+
+    </div>
+
+    <aside id="cart-overlay" class="cart-overlay hidden" aria-live="polite">
+        <div class="cart-drawer">
+            <div class="cart-header">
+                <div>
+                    <h2>Seu Carrinho</h2>
+                    <span id="cart-count">0 itens</span>
+                </div>
+                <button id="close-cart" class="close-cart" aria-label="Fechar carrinho">×</button>
+            </div>
+
+            <div id="cart-items" class="cart-items"></div>
+
+            <div class="order-summary">
+                <div class="summary-row">
+                    <span>Itens</span>
+                    <strong id="item-quantity">0</strong>
+                </div>
+                <div class="summary-row">
+                    <span>Subtotal</span>
+                    <strong id="subtotal">R$ 0,00</strong>
+                </div>
+                <div class="summary-row total">
+                    <span>Total</span>
+                    <strong id="total">R$ 0,00</strong>
+                </div>
+                <button id="confirm-btn" class="confirm-btn" type="button">Finalizar Pedido</button>
+            </div>
+        </div>
+    </aside>
+
+    <div id="auth-modal" class="auth-modal hidden" aria-modal="true" role="dialog">
+        <div class="auth-modal-card">
+            <button id="auth-close" class="auth-close" type="button" aria-label="Fechar">×</button>
+
+            <div class="auth-modal-header">
+                <span class="auth-badge">DONA FOME</span>
+                <h2>Minha conta</h2>
+            </div>
+
+            <div class="auth-toggle">
+                <button type="button" class="auth-toggle-btn active" data-auth-mode="login">Entrar</button>
+                <button type="button" class="auth-toggle-btn" data-auth-mode="register">Criar conta</button>
+            </div>
+
+            <form id="auth-login-form" class="auth-form-public">
+                <label>
+                    <span>E-mail ou usuário</span>
+                    <input type="text" name="username" placeholder="seu@email.com" required>
+                </label>
+                <label>
+                    <span>Senha</span>
+                    <input type="password" name="password" placeholder="Digite sua senha" required>
+                </label>
+                <button type="submit" class="primary-btn">Entrar</button>
+            </form>
+
+            <form id="auth-register-form" class="auth-form-public hidden">
+                <label>
+                    <span>Nome completo</span>
+                    <input type="text" name="name" placeholder="Seu nome" required>
+                </label>
+                <label>
+                    <span>E-mail</span>
+                    <input type="email" name="email" placeholder="seu@email.com" required>
+                </label>
+                <label>
+                    <span>Telefone</span>
+                    <input type="tel" name="phone" placeholder="(21) 99999-9999">
+                </label>
+                <label>
+                    <span>Senha</span>
+                    <input type="password" name="password" placeholder="Crie uma senha" required>
+                </label>
+                <label>
+                    <span>Confirmar senha</span>
+                    <input type="password" name="confirmPassword" placeholder="Repita a senha" required>
+                </label>
+                <button type="submit" class="primary-btn">Criar conta</button>
+            </form>
+        </div>
+    </div>
+
+    <div id="account-panel" class="account-panel hidden" aria-modal="true" role="dialog">
+        <div class="account-panel-card">
+            <button id="account-panel-close" class="auth-close" type="button" aria-label="Fechar painel">×</button>
+
+            <div class="account-panel-head">
+                <div>
+                    <span class="auth-badge">CLIENTE</span>
+                    <h2>Minha conta</h2>
+                </div>
+            </div>
+
+            <div class="account-profile">
+                <div class="profile-avatar" id="profile-avatar">C</div>
+                <div>
+                    <strong id="profile-name">Cliente</strong>
+                    <p id="profile-email">cliente@email.com</p>
+                </div>
+            </div>
+
+            <div class="account-grid">
+                <section class="account-box">
+                    <h3>Dados da conta</h3>
+                    <ul class="account-meta">
+                        <li><span>Usuário</span><strong id="account-username">-</strong></li>
+                        <li><span>E-mail</span><strong id="account-email">-</strong></li>
+                        <li><span>Telefone</span><strong id="account-phone">-</strong></li>
+                    </ul>
+                </section>
+
+                <section class="account-box">
+                    <h3>Histórico de pedidos</h3>
+                    <div id="customer-orders" class="customer-orders"></div>
+                </section>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
